@@ -3,6 +3,7 @@ PMO governance and reporting package for a CRM implementation project including 
 
 # Structure
 
+```
 PMO-Project-Dashboard/
 
 ├── README.md
@@ -13,3 +14,4 @@ PMO-Project-Dashboard/
 ├── dashboards/
 ├── images/
 └── reports/
+```
