@@ -10,6 +10,8 @@ st.set_page_config(
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 DATA_FILE = PROJECT_ROOT / "data" / "project_tasks.xlsx"
 
+# debugging output
+
 # st.write("PROJECT_ROOT:", PROJECT_ROOT)
 # st.write("DATA_FILE:", DATA_FILE)
 # st.write("FILE EXISTS:", DATA_FILE.exists())
