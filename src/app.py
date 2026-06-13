@@ -23,37 +23,95 @@ df = pd.read_excel(DATA_FILE)
 df["Start Date"] = pd.to_datetime(df["Start Date"])
 df["End Date"] = pd.to_datetime(df["End Date"])
 
-df_display = df.copy()
 
-df_display["Start Date"] = df_display["Start Date"].dt.strftime("%d-%b-%Y")
-df_display["End Date"] = df_display["End Date"].dt.strftime("%d-%b-%Y")
+# Sidebar filters
+st.sidebar.header("Filters")
 
+owner_filter = st.sidebar.selectbox(
+    "Owner",
+    ["All"] + sorted(df["Owner"].unique().tolist())
+)
+
+status_filter = st.sidebar.selectbox(
+    "Status",
+    ["All"] + sorted(df["Status"].unique().tolist())
+)
+
+filtered_df = df.copy()
+
+if owner_filter != "All":
+    filtered_df = filtered_df[
+        filtered_df["Owner"] == owner_filter
+    ]
+
+if status_filter != "All":
+    filtered_df = filtered_df[
+        filtered_df["Status"] == status_filter
+    ]
+
+# create display dataframe
+df_display = filtered_df.copy()
+
+df_display["Start Date"] = (
+    df_display["Start Date"]
+    .dt.strftime("%d-%b-%Y")
+)
+
+df_display["End Date"] = (
+    df_display["End Date"]
+    .dt.strftime("%d-%b-%Y")
+)
 
 # KPIs
 avg_progress = round(
-    df["Progress %"].mean(),
+    filtered_df["Progress %"].mean(),
     1
 )
 
 completed = len(
-    df[df["Status"] == "Completed"]
+    filtered_df[filtered_df["Status"] == "Completed"]
 )
 
 in_progress = len(
-    df[df["Status"] == "In Progress"]
+    filtered_df[filtered_df["Status"] == "In Progress"]
 )
 
 not_started = len(
-    df[df["Status"] == "Not Started"]
+    filtered_df[filtered_df["Status"] == "Not Started"]
+)
+
+# Summary variables
+remaining_tasks = len(
+    filtered_df[
+        filtered_df["Status"] != "Completed"
+    ]
+)
+
+active_tasks = len(
+    filtered_df[
+        filtered_df["Status"] == "In Progress"
+    ]
+)
+
+st.subheader("Executive Summary")
+
+st.info(
+    f"""
+    Project completion is currently {avg_progress:.1f}%.
+
+    There are {active_tasks} active task(s) in progress and
+    {remaining_tasks} task(s) remaining before project completion.
+    """
 )
 
 st.title("CRM Transformation Program")
+
 
 col1, col2, col3, col4 = st.columns(4)
 
 col1.metric(
     "Project Progress",
-    f"{avg_progress: .1f}%"
+    f"{avg_progress:.1f}%"
 )
 
 col2.metric(
@@ -71,9 +129,10 @@ col4.metric(
     not_started
 )
 
+
 st.subheader("Project Health Overview")
 
-status_counts = df["Status"].value_counts()
+status_counts = filtered_df["Status"].value_counts()
 
 # pie chart
 fig = px.pie(
@@ -99,11 +158,13 @@ fig.update_traces(
     textinfo="percent+label"
 )
 
+st.plotly_chart(fig, use_container_width=True)
+
 # Gantt Chart
 st.subheader("Project Timeline (Gantt View)")
 
 fig_gantt = px.timeline(
-    df,
+    filtered_df,
     x_start="Start Date",
     x_end="End Date",
     y="Task Name",
@@ -136,10 +197,9 @@ fig_gantt.update_layout(height=500)
 
 fig_gantt.update_yaxes(autorange="reversed")
 
+
 st.plotly_chart(fig_gantt, use_container_width=True)
 
-
-st.plotly_chart(fig, use_container_width=True)
 
 st.subheader("Project Tasks")
 
