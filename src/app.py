@@ -18,6 +18,15 @@ DATA_FILE = PROJECT_ROOT / "data" / "project_tasks.xlsx"
 
 df = pd.read_excel(DATA_FILE)
 
+# convderts to proper dates
+df["Start Date"] = pd.to_datetime(df["Start Date"])
+df["End Date"] = pd.to_datetime(df["End Date"])
+
+df_display = df.copy()
+
+df_display["Start Date"] = df_display["Start Date"].dt.strftime("%d-%b-%Y")
+df_display["End Date"] = df_display["End Date"].dt.strftime("%d-%b-%Y")
+
 
 st.set_page_config(
     page_title="PMO Dashboard",
@@ -68,4 +77,4 @@ col4.metric(
 
 st.subheader("Project Tasks")
 
-st.dataframe(df)
+st.dataframe(df_display)
