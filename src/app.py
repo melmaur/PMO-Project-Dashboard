@@ -1,13 +1,25 @@
 import streamlit as st
 import pandas as pd
+from pathlib import Path
 
 st.set_page_config(
     page_title="PMO Dashboard",
     layout="wide"
 )
 
-df = pd.read_excel(
-    "../data/project_tasks.xlsx"
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+DATA_FILE = PROJECT_ROOT / "data" / "project_tasks.xlsx"
+
+/*st.write("PROJECT_ROOT:", PROJECT_ROOT)
+/*st.write("DATA_FILE:", DATA_FILE)
+/*st.write("FILE EXISTS:", DATA_FILE.exists())
+
+df = pd.read_excel(DATA_FILE)
+
+
+st.set_page_config(
+    page_title="PMO Dashboard",
+    layout="wide"
 )
 
 # KPIs

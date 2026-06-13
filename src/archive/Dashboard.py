@@ -1,9 +1,15 @@
 import pandas as pd
 from plotly.subplots import make_subplots
 import plotly.graph_objects as go
+from pathlib import Path
 
 # Load data
-df = pd.read_excel("../data/project_tasks.xlsx")
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+DATA_FILE = PROJECT_ROOT / "data" / "project_tasks.xlsx"
+
+df = pd.read_excel(DATA_FILE)
+
+
 
 # KPIs
 avg_progress = round(df["Progress %"].mean(), 1)
