@@ -8,13 +8,13 @@ Built to demonstrate project tracking, governance reporting, and executive-level
 This project simulates a PMO (Project Management Office) reporting system for a CRM transformation initiative.
 
 It was built progressively to replicate how PMO teams track:
-
+```
 Project progress
 Task delivery
 Schedule adherence
 Risks, issues, assumptions, and dependencies (RAID)
 Executive reporting
-
+```
 -> The solution transforms a simple Excel project plan into an interactive analytics dashboard using Streamlit.
 
 # Objectives
@@ -26,13 +26,13 @@ Introduce RAID governance tracking
 Practice data analysis and dashboard design in Python
 
 # Tech Stack
-
+```
 Python
 Streamlit
 Pandas
 Plotly
 Excel (data source)
-
+```
 # 📂 Project Structure
 ```
 PMO-Project-Dashboard/
@@ -53,13 +53,18 @@ PMO-Project-Dashboard/
 └── README.md
 ```
 
-# 📈 Project Evolution
+# Project Evolution
 
 🟢 V1 – Basic Reporting Dashboard
 
 Initial version focused on transforming Excel data into simple KPIs and a table view.
 
-📸 Screenshot:
+### Step 1: Initial Dashboard (V1)
+![Dashboard V1](images/dashboard_v1.png)
+
+---
+
+
 
 
 🔵 V2 – Visual Analytics Layer
@@ -70,7 +75,8 @@ Task status distribution (pie chart)
 Project timeline (Gantt chart)
 Improved KPI visualization
 
-📸 Screenshot:
+### Step 2: Analytics Layer (V2)
+![Dashboard V2](images/dashboard_v2.png)
 
 
 🟣 V3 – Multi-Tab Interface
@@ -82,7 +88,10 @@ Schedule
 Task Register
 RAID placeholder
 
-This improved usability and mirrored real PMO reporting tools.
+## This improved usability and mirrored real PMO reporting tools.
+
+### Step 2: Multi-Tab Interface (V3)
+![Dashboard V2](images/dashboard_v3.png)
 
 🔴 V4 – RAID Governance Module
 
@@ -98,19 +107,21 @@ KPI summary of RAID items
 Interactive filtering
 Structured governance view
 
-📸 Screenshot:
+### Step 3: Governance Expansion (V4)
+![Dashboard V4](images/dashboard_v4.png)
 
 
-📊 Key Features
-📌 Executive Overview
+# Key Features
+
+ Executive Overview
 Project completion tracking
 KPI cards (progress, status breakdown)
 High-level summary insights
-📅 Schedule Management
+ Schedule Management
 Gantt chart timeline
 Task-level visibility
 Status-based color coding
-📋 Task Register
+ Task Register
 Full project task list
 Filtering by owner and status
 Excel-backed data model
