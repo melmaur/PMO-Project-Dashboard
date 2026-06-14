@@ -81,7 +81,7 @@ Project timeline (Gantt chart)
 Improved KPI visualization
 
 ### Step 2: Analytics Layer (V2)
-![Dashboard V2](images/dashboard_V2.png)
+![Dashboard V2](images/Dashboard_V2.png)
 
 
 🟣 V3 – Multi-Tab Interface
@@ -96,7 +96,7 @@ RAID placeholder
 ## This improved usability and mirrored real PMO reporting tools.
 
 ### Step 2: Multi-Tab Interface (V3)
-![Dashboard V2](images/dashboard_V3.png)
+![Dashboard V3](images/Dashboard_V3.png)
 
 🔴 V4 – RAID Governance Module
 
@@ -113,7 +113,7 @@ Interactive filtering
 Structured governance view
 
 ### Step 3: Governance Expansion (V4)
-![Dashboard V4](images/dashboard_V4.png)
+![Dashboard V4](images/Dashboard_V4.png)
 
 
 # Key Features
