@@ -65,7 +65,7 @@ PMO-Project-Dashboard/
 Initial version focused on transforming Excel data into simple KPIs and a table view.
 
 ### Step 1: Initial Dashboard (V1)
-![Dashboard V1](images/dashboard_V1.png)
+![Dashboard V1](images/Dashboard_V1.png)
 
 ---
 
