@@ -71,7 +71,6 @@ Initial version focused on transforming Excel data into simple KPIs and a table 
 
 
 
-
 🔵 V2 – Visual Analytics Layer
 
 Added in Version 2:
@@ -95,7 +94,7 @@ RAID placeholder
 
 ## This improved usability and mirrored real PMO reporting tools.
 
-### Step 2: Multi-Tab Interface (V3)
+### Step 3: Multi-Tab Interface (V3)
 ![Dashboard V3](images/Dashboard_V3.png)
 
 🔴 V4 – RAID Governance Module
